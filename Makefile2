@@ -1,0 +1,28 @@
+DEBUG	= -g -DDEBUG -O2
+OPT	= -funroll-loops -D__USE_STRING_INLINES -fhosted #-DLOG_USE_SYSLOG 
+OPT	+= -DEPOLL_MODE
+
+CC		= gcc
+BINS	= AsynServ
+SRCS 	= main.c dll.c daemon.c util.c shmq.c net.c net_if.c service.c bindconf.c mcast.c
+
+INCL	+= -I/usr/include/libxml2 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include/ -I./ -I../
+CFLAGS	= -Wall $(INCL) -MMD $(DEBUG) -D_REENTRANT -D_GNU_SOURCE $(OPT) 
+LINKDIR	=  -L../libtaomee
+LIBS	+= -lxml2 -ldl -rdynamic -lm -lglib-2.0 -lssl -ltaomee
+
+all: $(BINS)
+
+%.o: %.c Makefile
+	$(CC) $(CFLAGS) -c -o $@ $<
+	@-mv -f $*.d .dep.$@
+
+$(BINS): $(SRCS:.c=.o)
+	$(CC)  $(LDFLAGS) -o $@ $^ $(LINKDIR) $(LIBS)
+
+#	rm ../bin/$(BINS); mv $(BINS) ../bin/
+clean:
+	@-rm -f *.o *.po *.so *.d .dep.* $(BINS) core
+
+-include /dev/null $(wildcard .dep.*)
+

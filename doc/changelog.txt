@@ -1,0 +1,162 @@
+2012-04-12
+features:
+	1. 删除由async_server自身维护脏词的逻辑，改为helper模式.
+fixes:
+	1. 版本号1.6.4
+
+2012-03-20
+features:
+	1. 增加了自定义业务进程的net_loop时长，[0-1000]ms
+2012-03-15
+fixes:
+	1. 修复杀进程导致的死锁问题
+	2. 版本号1.6.3
+features:
+	1. 增加TLOG
+
+2011-11-09
+fixes:
+	1. 修复向子进程发送 SIGKILL 信号的问题 (改成发送 SIGTERM)
+
+features:
+  1. 增加脏词检测启动与否的开关.
+
+2011-11-07
+features:
+  1. 增加脏词检测的守护接口tm_dirty_daemon 创建一个线程定期更新脏词库
+fixes:
+  1. 版本号修正为1.6.0
+
+2011-10-31
+fixes:
+  1. 把shmq共享内存包大小的限制从64K增加到4G。
+
+2011-08-03
+features:
+  1. 优化了代码，从此无需配置mcast_outgoing_if和addr_mcast_outgoing_if，减轻修改配置的负担。
+fixes:
+  1. 修正了关闭text.so前，没有调用before_reload接口的bug。
+
+2011-07-20
+features:
+  1. 增加了asynsvr_send_warning_msg接口，用于发送报警短信。
+
+2011-07-15
+fixes:
+  1. 修复了在so中关闭主动发起的连接时导致的core。
+
+2011-06-23
+features:
+  1. 限制组播IP地址只能使用239.x.x.x
+
+2011-06-08
+features:
+  1. 把对pipe的处理整理成一个函数
+  2. 增加了异步连接到服务端的接口：asyn_connect_to_svr和asyn_connect_to_service
+
+2011-06-07
+features:
+  1. 加入了close_svr接口，用于关闭主动发起的连接
+  2. AsyncServer可启动的子进程个数增大到500个
+fixes:
+  1. 修正了重启时的误报警
+  2. 修正了子进程发起大量连接（超过100）时内存越界的bug
+
+2011-04-22:
+features:
+  1. 接受ericma的建议，加了before_reload接口，用于在重读text.so之前对全局变量做一些必要的销毁。
+
+2011-04-14:
+features:
+  1. 配合libtaomee修改了safe_socket_listen的参数
+
+2011-03-24:
+features:
+  1. 配合libtaomee的修改，在log_init后输出日志初始化信息。
+
+2011-03-23:
+features:
+  1. 为避免重启服务时频繁报警，增加了对TERM信号的处理，父进程收到TERM信号时通知
+     子进程正常退出，避免报警。重启不能pkill -9 NAME，必须改成kill -TERM 父进程ID。
+code:
+  cliu
+review:
+  andy
+
+2011-03-07:
+features:
+  1. 对用户态发送缓存做了限制，避免客户端不接受导致服务端内存耗尽。
+     需要在bench.conf加上send_buf_limit_size配置项，不配则默认不使用这个功能。
+  2. 重读so的修改：当通知所有子进程一起重读so时（svrid填0），父进程也会重读so，
+     避免子进程core掉重启时还是使用了旧的so。
+
+2011-02-15:
+features:
+  1. 子进程受到服务地址同步包时，会通过sync_service_info接口通知业务逻辑so
+  2. 进程core掉时，会发包给短信报警服务器
+  3. AsyncServInterface里预留了40个字节空间，为以后接口扩展做准备
+
+2011-01-05:
+feature:
+  1. work进程监听udp 接口调整
+
+
+
+2010-12-22:
+feature:
+  1. 支持通过组播包重读so
+  2. 修正写日志死循环
+
+2010-11-16:(jim)
+feature:
+  1. 加入hadoop 日志支持
+
+
+2010-11-16:(cliu)
+
+fix:
+  1. 修复connect_to_svr 中内存泄漏问题
+
+
+2010-01-08
+feature:
+  1. 可以通过配置文件配置最大允许接收的协议包的大小。
+
+2009-10-28
+feature:
+  1. 完成通过服务名字查找对应的ip及端口的功能。
+
+2009-10-27
+feature:
+  1. 基本完成通过服务名字查找对应的ip及端口的功能。
+todo:
+  1. 编写服务名字过期功能
+  2. 编写定期同步服务名功能
+
+2009-10-21
+feature:
+  1. 开始编写通过服务名字查找对应的ip及端口的功能。
+
+2009-08-19
+feature:
+  1. 增加配置项cli_socket_timeout（例如：cli_socket_timeout  30）。
+     如果配置了该项，则客户端30秒内不发包给服务端的话会被断掉。
+     如果不配置该项，或者配置成0，则该配置项不生效。
+
+2009-05-14
+feature:
+  1. 增加了get_server_id函数。
+fix:
+  1. 修正了组播的bug
+
+2009-04-23
+feature:
+  1. 最大打开fd可通过配置文件配置。
+
+2009-01-04
+feature:
+  1. 改用libtaomee库里的config.h。
+
+2008-12-04
+feature:
+  1. 添加组播功能。

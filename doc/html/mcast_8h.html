@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>AsyncServ: Z:/async_serv/mcast.h文件参考</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- 制作者 Doxygen 1.5.6 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Z:/async_serv/mcast.h文件参考</h1>Define the interfaces to send multicast datagram <a href="#_details">更多...</a>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>函数</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mcast_8h.html#573fff1488d1c4c81519a79717dc7683">send_mcast_pkg</a> (const void *data, int len)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Send out a mcast datagram to the specified `mcast_ip` and `mcast_port`. Note, length of the data should be no longer than 8192.  <a href="#573fff1488d1c4c81519a79717dc7683"></a><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>详细描述</h2>
+Define the interfaces to send multicast datagram 
+<p>
+============================================================<p>
+compiler gcc4.1.2 platform Linux<p>
+copyright: TaoMee, Inc. ShangHai CN. All rights reserved.<p>
+============================================================ <hr><h2>函数文档</h2>
+<a class="anchor" name="573fff1488d1c4c81519a79717dc7683"></a><!-- doxytag: member="mcast.h::send_mcast_pkg" ref="573fff1488d1c4c81519a79717dc7683" args="(const void *data, int len)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int send_mcast_pkg           </td>
+          <td>(</td>
+          <td class="paramtype">const void *&nbsp;</td>
+          <td class="paramname"> <em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>len</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Send out a mcast datagram to the specified `mcast_ip` and `mcast_port`. Note, length of the data should be no longer than 8192. 
+<p>
+<dl compact><dt><b>参数:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>const</em>&nbsp;</td><td>void* data, data to send. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>len, length of `data`.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>返回:</b></dt><dd>int, number of characters sent on success, -1 on error </dd></dl>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated at Tue Oct 27 22:44:06 2009 for AsyncServ by&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
+</body>
+</html>

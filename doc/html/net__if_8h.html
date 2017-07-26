@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>AsyncServ: Z:/async_serv/net_if.h文件参考</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- 制作者 Doxygen 1.5.6 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Z:/async_serv/net_if.h文件参考</h1>Essential net interface to deal with network <a href="#_details">更多...</a>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>函数</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="net__if_8h.html#77fb6b33b1e55d0d139f9b4038b65766">connect_to_svr</a> (const char *ipaddr, in_addr_t port, int bufsz, int timeout)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Connect to a given server.  <a href="#77fb6b33b1e55d0d139f9b4038b65766"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="net__if_8h.html#788d6f49a6c62477cd4b919198494f6d">connect_to_service</a> (const char *service_name, uint32_t svr_id, int bufsz, int timeout)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Connect to a given server whose name is 'service_name'.  <a href="#788d6f49a6c62477cd4b919198494f6d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="net__if_8h.html#28daa0e94818689ac432b577e26fded8">create_udp_socket</a> (struct sockaddr_in *addr, const char *ip, in_port_t port)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a udp socket to the given server.  <a href="#28daa0e94818689ac432b577e26fded8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="net__if_8h.html#6dae1cfb2322e90a058e8ad3601966a9">net_send</a> (int fd, const void *data, uint32_t len)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Send data to the given tcp socket fd  <a href="#6dae1cfb2322e90a058e8ad3601966a9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="net__if_8h.html#8b6760002e05ee42b76865e91fcd38cf">send_pkg_to_client</a> (fdsession_t *fdsess, const void *pkg, const int pkglen)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Send a package to a client. For child process only.  <a href="#8b6760002e05ee42b76865e91fcd38cf"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="net__if_8h.html#4db3ebb76923f1a7e8a2f4d1b4e7f28d">close_client_conn</a> (int fd)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Close a client connection. For child process only. <br>
+ This function will firstly call on_client_conn_closed implemented by the .so lib, then it'll send a connection-close-request to the parent process.  <a href="#4db3ebb76923f1a7e8a2f4d1b4e7f28d"></a><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>详细描述</h2>
+Essential net interface to deal with network 
+<p>
+============================================================<p>
+compiler gcc4.1.2 platform Linux<p>
+copyright: TaoMee, Inc. ShangHai CN. All rights reserved.<p>
+============================================================ <hr><h2>函数文档</h2>
+<a class="anchor" name="4db3ebb76923f1a7e8a2f4d1b4e7f28d"></a><!-- doxytag: member="net_if.h::close_client_conn" ref="4db3ebb76923f1a7e8a2f4d1b4e7f28d" args="(int fd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void close_client_conn           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>fd</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Close a client connection. For child process only. <br>
+ This function will firstly call on_client_conn_closed implemented by the .so lib, then it'll send a connection-close-request to the parent process. 
+<p>
+<dl compact><dt><b>参数:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>fd</em>&nbsp;</td><td>client socket fd to be closed </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="788d6f49a6c62477cd4b919198494f6d"></a><!-- doxytag: member="net_if.h::connect_to_service" ref="788d6f49a6c62477cd4b919198494f6d" args="(const char *service_name, uint32_t svr_id, int bufsz, int timeout)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int connect_to_service           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>service_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&nbsp;</td>
+          <td class="paramname"> <em>svr_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>bufsz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>timeout</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Connect to a given server whose name is 'service_name'. 
+<p>
+<dl compact><dt><b>参数:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>service_name</em>&nbsp;</td><td>name of the server to connect to. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>svr_id</em>&nbsp;</td><td>id of the 'service_name' to connect to. If svr_id is assigned with 0, then a random server id is generated. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>bufsz, size of the buffer to hold the sending data. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>timeout, interrupt the connecting attempt after timeout secs.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>返回:</b></dt><dd>int, the connected socket fd, -1 on error. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="77fb6b33b1e55d0d139f9b4038b65766"></a><!-- doxytag: member="net_if.h::connect_to_svr" ref="77fb6b33b1e55d0d139f9b4038b65766" args="(const char *ipaddr, in_addr_t port, int bufsz, int timeout)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int connect_to_svr           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>ipaddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in_addr_t&nbsp;</td>
+          <td class="paramname"> <em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>bufsz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>timeout</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Connect to a given server. 
+<p>
+<dl compact><dt><b>参数:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>const</em>&nbsp;</td><td>char* ipaddr, ip address of the server to connect to. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>in_addr_t</em>&nbsp;</td><td>port, port of the server to connect to. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>bufsz, size of the buffer to hold the sending data. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>timeout, interrupt the connecting attempt after timeout secs.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>返回:</b></dt><dd>int, the connected socket fd, -1 on error. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="28daa0e94818689ac432b577e26fded8"></a><!-- doxytag: member="net_if.h::create_udp_socket" ref="28daa0e94818689ac432b577e26fded8" args="(struct sockaddr_in *addr, const char *ip, in_port_t port)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int create_udp_socket           </td>
+          <td>(</td>
+          <td class="paramtype">struct sockaddr_in *&nbsp;</td>
+          <td class="paramname"> <em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">in_port_t&nbsp;</td>
+          <td class="paramname"> <em>port</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Create a udp socket to the given server. 
+<p>
+<dl compact><dt><b>参数:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>struct</em>&nbsp;</td><td>sockaddr_in* addr, it will be initialized base on the given ip and port. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>const</em>&nbsp;</td><td>char* ip, ip address of the server. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>in_port_t</em>&nbsp;</td><td>port, port of the server.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>返回:</b></dt><dd>int, the created udp socket fd, -1 on error. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="6dae1cfb2322e90a058e8ad3601966a9"></a><!-- doxytag: member="net_if.h::net_send" ref="6dae1cfb2322e90a058e8ad3601966a9" args="(int fd, const void *data, uint32_t len)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int net_send           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&nbsp;</td>
+          <td class="paramname"> <em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&nbsp;</td>
+          <td class="paramname"> <em>len</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Send data to the given tcp socket fd 
+<p>
+<dl compact><dt><b>参数:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>int</em>&nbsp;</td><td>fd, socket fd to send data to. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>const</em>&nbsp;</td><td>void* data, data to be sent to the given fd. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>uint32_t</em>&nbsp;</td><td>len, length of the data to be sent.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>返回:</b></dt><dd>int, 0 on sucess, -1 on failure. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="8b6760002e05ee42b76865e91fcd38cf"></a><!-- doxytag: member="net_if.h::send_pkg_to_client" ref="8b6760002e05ee42b76865e91fcd38cf" args="(fdsession_t *fdsess, const void *pkg, const int pkglen)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int send_pkg_to_client           </td>
+          <td>(</td>
+          <td class="paramtype">fdsession_t *&nbsp;</td>
+          <td class="paramname"> <em>fdsess</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&nbsp;</td>
+          <td class="paramname"> <em>pkg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&nbsp;</td>
+          <td class="paramname"> <em>pkglen</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Send a package to a client. For child process only. 
+<p>
+<dl compact><dt><b>参数:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>fdsession_t*</em>&nbsp;</td><td>fdsess, fd session of the client to whom the package will be sent. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>const</em>&nbsp;</td><td>void* pkg, package to be sent. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>const</em>&nbsp;</td><td>int pkglen, length of the package to be sent.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>返回:</b></dt><dd>int, the created udp socket fd, -1 on error. </dd></dl>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated at Tue Oct 27 22:44:06 2009 for AsyncServ by&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>AsyncServ: AsyncServInterface结构参考</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- 制作者 Doxygen 1.5.6 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li class="current"><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>组合类型列表</span></a></li>
+      <li><a href="functions.html"><span>组合类型成员</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>AsyncServInterface结构参考</h1><!-- doxytag: class="AsyncServInterface" -->To make use of AsyncServ, a .so must implement the interfaces held by this structure  
+<a href="#_details">更多...</a>
+<p>
+
+<p>
+<a href="struct_async_serv_interface-members.html">所有成员的列表。</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>公有属性</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#f48e10b56fc2914f329e0c58edcf2400">proc_events</a> )()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#71f70cf21fbe55a6be2e6d0a4134ad90">proc_pkg_from_client</a> )(void *pkg, int pkglen, fdsession_t *fdsess)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#e812ee253c464a48df3a8c565d97c9c9">proc_pkg_from_serv</a> )(int fd, void *pkg, int pkglen)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#80d361a3e4399f6e3195077192d924d6">proc_mcast_pkg</a> )(const void *data, int len)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#7bfd43a423d0c0459835ce32ce928a17">on_client_conn_closed</a> )(int fd)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#250865d31be0852c517ceb5fe7fb2272">on_fd_closed</a> )(int fd)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#76610cc10d20b692cfcd975074edeb08">init_service</a> )(int isparent)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#a6afb10aec0fc7799b37b1f360f44ad0">fini_service</a> )(int isparent)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_async_serv_interface.html#4dc31a7355d506e841d1c8d75bbc9488">get_pkg_len</a> )(int fd, const void *avail_data, int avail_len, int isparent)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>详细描述</h2>
+To make use of AsyncServ, a .so must implement the interfaces held by this structure <hr><h2>成员数据文档</h2>
+<a class="anchor" name="f48e10b56fc2914f329e0c58edcf2400"></a><!-- doxytag: member="AsyncServInterface::proc_events" ref="f48e10b56fc2914f329e0c58edcf2400" args=")()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* <a class="el" href="struct_async_serv_interface.html#f48e10b56fc2914f329e0c58edcf2400">AsyncServInterface::proc_events</a>)()          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Called each time before processing packages from clients. Optional interface. Calling interval of this interface is no much longer than 100ms at maximum. 
+</div>
+</div><p>
+<a class="anchor" name="71f70cf21fbe55a6be2e6d0a4134ad90"></a><!-- doxytag: member="AsyncServInterface::proc_pkg_from_client" ref="71f70cf21fbe55a6be2e6d0a4134ad90" args=")(void *pkg, int pkglen, fdsession_t *fdsess)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* <a class="el" href="struct_async_serv_interface.html#71f70cf21fbe55a6be2e6d0a4134ad90">AsyncServInterface::proc_pkg_from_client</a>)(void *pkg, int pkglen, fdsession_t *fdsess)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Called to process packages from clients. Called once for each package. <br>
+ Return non-zero if you want to close the client connection from which the `pkg` is sent, otherwise returns 0. If non-zero is returned, `on_client_conn_closed` will be called too. 
+</div>
+</div><p>
+<a class="anchor" name="e812ee253c464a48df3a8c565d97c9c9"></a><!-- doxytag: member="AsyncServInterface::proc_pkg_from_serv" ref="e812ee253c464a48df3a8c565d97c9c9" args=")(int fd, void *pkg, int pkglen)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* <a class="el" href="struct_async_serv_interface.html#e812ee253c464a48df3a8c565d97c9c9">AsyncServInterface::proc_pkg_from_serv</a>)(int fd, void *pkg, int pkglen)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Called to process packages from servers that the child connects to. Called once for each package. 
+</div>
+</div><p>
+<a class="anchor" name="80d361a3e4399f6e3195077192d924d6"></a><!-- doxytag: member="AsyncServInterface::proc_mcast_pkg" ref="80d361a3e4399f6e3195077192d924d6" args=")(const void *data, int len)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* <a class="el" href="struct_async_serv_interface.html#80d361a3e4399f6e3195077192d924d6">AsyncServInterface::proc_mcast_pkg</a>)(const void *data, int len)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Called to process multicast packages from the specified `mcast_ip` and `mcast_port`. Called once for each package. 
+</div>
+</div><p>
+<a class="anchor" name="7bfd43a423d0c0459835ce32ce928a17"></a><!-- doxytag: member="AsyncServInterface::on_client_conn_closed" ref="7bfd43a423d0c0459835ce32ce928a17" args=")(int fd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* <a class="el" href="struct_async_serv_interface.html#7bfd43a423d0c0459835ce32ce928a17">AsyncServInterface::on_client_conn_closed</a>)(int fd)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Called each time when a client close a connection, or when `proc_pkg_from_client` returns -1. 
+</div>
+</div><p>
+<a class="anchor" name="250865d31be0852c517ceb5fe7fb2272"></a><!-- doxytag: member="AsyncServInterface::on_fd_closed" ref="250865d31be0852c517ceb5fe7fb2272" args=")(int fd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* <a class="el" href="struct_async_serv_interface.html#250865d31be0852c517ceb5fe7fb2272">AsyncServInterface::on_fd_closed</a>)(int fd)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Called each time on close of the FDs opened by the child. 
+</div>
+</div><p>
+<a class="anchor" name="76610cc10d20b692cfcd975074edeb08"></a><!-- doxytag: member="AsyncServInterface::init_service" ref="76610cc10d20b692cfcd975074edeb08" args=")(int isparent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* <a class="el" href="struct_async_serv_interface.html#76610cc10d20b692cfcd975074edeb08">AsyncServInterface::init_service</a>)(int isparent)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Called only once at server startup by both the parent and child process. Optional interface.<br>
+ `isparent == 1` indicates this interface is called by the parent; `isparent == 0` indicates this interface is called by the child. <br>
+ You should initialize your service program (allocate memory, create objects, etc) here. <br>
+ You must return 0 on success, -1 otherwise. 
+</div>
+</div><p>
+<a class="anchor" name="a6afb10aec0fc7799b37b1f360f44ad0"></a><!-- doxytag: member="AsyncServInterface::fini_service" ref="a6afb10aec0fc7799b37b1f360f44ad0" args=")(int isparent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* <a class="el" href="struct_async_serv_interface.html#a6afb10aec0fc7799b37b1f360f44ad0">AsyncServInterface::fini_service</a>)(int isparent)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Called only once at server stop by both the parent and child process. Optional interface.<br>
+ `isparent == 1` indicates this interface is called by the parent; `isparent == 0` indicates this interface is called by the child. <br>
+ You should finalize your service program (release memory, destroy objects, etc) here. <br>
+ You must return 0 if you have finished finalizing the service, -1 otherwise. 
+</div>
+</div><p>
+<a class="anchor" name="4dc31a7355d506e841d1c8d75bbc9488"></a><!-- doxytag: member="AsyncServInterface::get_pkg_len" ref="4dc31a7355d506e841d1c8d75bbc9488" args=")(int fd, const void *avail_data, int avail_len, int isparent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* <a class="el" href="struct_async_serv_interface.html#4dc31a7355d506e841d1c8d75bbc9488">AsyncServInterface::get_pkg_len</a>)(int fd, const void *avail_data, int avail_len, int isparent)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+This interface will be called both by the parent and child process.<br>
+ `isparent == 1` indicates this interface is called by the parent; `isparent == 0` indicates this interface is called by the child. <br>
+ You must return 0 if you cannot yet determine the length of the incoming package, return -1 if you find that the incoming package is invalid and AsyncServ will close the connection, otherwise, return the length of the incoming package. Note, the package should be no larger than 8192 bytes. 
+</div>
+</div><p>
+<hr>该结构的文档由以下文件生成：<ul>
+<li>Z:/async_serv/<a class="el" href="dll_8h.html">dll.h</a></ul>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated at Tue Oct 27 22:44:06 2009 for AsyncServ by&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
+</body>
+</html>

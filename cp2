@@ -1,0 +1,8 @@
+cp -v dirtyFilter/dat/* ../onlinetest/dirtyFilter/dat
+cp -v *.xml ../onlinetest/
+rm ../onlinetest/StableOnline
+cp -v OnlineNew ../onlinetest/StableOnline
+cp -v ./games/* ../onlinetest/games
+cd ../onlinetest
+rm ./log/*
+./startup.sh
